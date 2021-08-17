@@ -26,25 +26,20 @@
  */
 typedef struct data_input
 {
-    char *imput_array;
-    size_t imput_size;
+	char *input_array;
+	size_t input_size;
 } data_input_t;
 
 
 
-
-
-
-
-
-
-
-
-
+int _get_promptline(data_input_t *data);
+void _prompt(void);
 /**
 * funct_helpers
 */
 int _putchar(char c);
 int _strlen(char *s);
+char *_strchr(char *s, char c);
+int _strncmp(char *s1, char *s2, int n);
 
 #endif

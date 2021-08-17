@@ -1,13 +1,14 @@
 #include "shell.h"
 
 /**
-* prompt - prints the prompt of the shell '$'
+* prompt - prints the prompt of the shell 
 * Return : void
 */
-void prompt(void)
+
+void _prompt(void)
 {
-	if (isatty(STDIN_FILENO))
+	if (isatty(STDOUT_FILENO))
 	{
-		_putchar('$');
+		write(STDOUT_FILENO, PROMPT, strlen(PROMPT));
 	}
 }
