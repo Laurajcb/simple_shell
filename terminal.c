@@ -8,9 +8,9 @@
 int main(void)
 {
 	int i = 1;
-	int readed_chars;
-	char *token[1024];
-	char *tmp;
+	int readed_chars = 0;
+	char **tokens = NULL;
+	
 	data_input_t *data_line;
 
 	data_line = malloc(sizeof(data_input_t));
@@ -18,7 +18,7 @@ int main(void)
 	{
 		return (-1);
 	}
-	while (1)
+	while (readed_chars != -1)
 	{
 		//the prompt function
 		_prompt();
@@ -28,17 +28,15 @@ int main(void)
 			return (-1);
 		}
 		//tokenize the getline
-		token[0] = strtok(data_line->input_array, " \n");
-		tmp = data_line->input_array;
-		while (tmp)
+		tokens = tokenize_getline(data_line);
+		if (not_buildin(tokens))
 		{
-			tmp = strtok(NULL, " \n");
-			token[i] = tmp;
-			i++;
+			get_dir(tokens); //path & dir ./ to be replaced tokens[1]
+			execute(tokens); // use with fork and execute in child 
 		}
 
 		//validate if is one built-in else built-in create fork and execute in child
-		if (execve(token[0], token, NULL) == -1)
+		if (execve(tokens[0], tokens, NULL) == -1)
 			perror("Error");
 	}
 	free(data_line);

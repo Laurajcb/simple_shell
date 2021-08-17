@@ -16,7 +16,8 @@
 #include <sys/stat.h>
 #include <limits.h>
 #define PROMPT "$ "
-#define DELIMIT " "
+
+extern char **environ;
 
 /**
  * struct env_var - enviroment vars
@@ -30,10 +31,16 @@ typedef struct data_input
 	size_t input_size;
 } data_input_t;
 
-
+/**
+* main functions
+*/
 
 int _get_promptline(data_input_t *data);
 void _prompt(void);
+char *_get_params(data_input_t *data);
+char **tokenize_getline(data_input_t *data);
+
+
 /**
 * funct_helpers
 */
@@ -41,5 +48,7 @@ int _putchar(char c);
 int _strlen(char *s);
 char *_strchr(char *s, char c);
 int _strncmp(char *s1, char *s2, int n);
+
+
 
 #endif
