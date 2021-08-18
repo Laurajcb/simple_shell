@@ -15,15 +15,16 @@
 #include <errno.h>
 #include <sys/stat.h>
 #include <limits.h>
-#define PROMPT "$ "
+#define PROMPT ("$ ")
+#define true (1)
+#define false (!true)
+
 
 extern char **environ;
 
 /**
  * struct env_var - enviroment vars
- * Description: struct have all the shell vars env.
- * this struct is goint to be use in functions to get 
- * the all the shell env 
+ * Description: struct have ...
  */
 typedef struct data_input
 {
@@ -41,13 +42,31 @@ char *_get_params(data_input_t *data);
 char **tokenize_getline(data_input_t *data);
 
 
+
+
+/**
+* struct para my build-in 
+*/
+typedef struct mybuild
+{
+	char *type;
+	void (*func)(char **tokens);
+} mybuild_t;
+/**
+* functions that cointains  buil-in functions
+*/
+void _exitt(char **tokens);
+void _env(char **tokens);
+
+
 /**
 * funct_helpers
 */
 int _putchar(char c);
 int _strlen(char *s);
 char *_strchr(char *s, char c);
-int _strncmp(char *s1, char *s2, int n);
+int _strcmp(char *s1, char *s2);
+void _putstr(char *str);
 
 
 

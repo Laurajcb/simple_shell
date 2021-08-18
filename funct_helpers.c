@@ -36,39 +36,34 @@ int _strlen(char *s)
  *Return: 0 is success o -1 is fail
  */
 
-int _strncmp(char *s1, char *s2, int n)
+int _strcmp(char *s1, char *s2)
 {
 
 	int i = 0;
 
 	do {
 		if (s1[i] != s2[i])
-			return (-1);
+			return (0);
 
 		i++;
 
-	} while (i != n);
+	} while (s1[i]);
 
-	return (0);
+	return (1);
 }
 
 /**
- *_strchr - look for  
- *@s: string
- *@c: char
- *Return: a pointer to the first occurrence of character c in the string s
- *or NULL if character is not found
+ * _puts - prints a string
+ * @str: pointer to string
  */
-char *_strchr(char *s, char c)
-{
-	int count;
 
-	for (count = 0; s[count] != '\0'; count++)
+void _putstr(char *str)
+{
+	int i = 0;
+
+	while (str[i])
 	{
-		if (s[count] == c)
-			return (s + count);
+		_putchar(str[i]);
+		i++;
 	}
-	if (s[count] == c)
-		return (s + count);
-	return (0);
 }
