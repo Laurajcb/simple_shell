@@ -1,9 +1,9 @@
 #include "shell.h"
 
-/**
-* _get_params- get the parameters 
-* Return : void
-*/
+
+//  _get_params- get the parameters 
+//  Return : void
+
 char **main(void)
 {
 	char **tokens;
