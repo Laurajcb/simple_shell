@@ -19,7 +19,7 @@ In this repository you will find our version of a simple UNIX commandinterpreter
 | **NAME OF THE FILE** | CONTENT |
 |---|---|
 |[_README.md_](./README.md)| It contains all the information about the project and all its content.
-|[_AUTHORS_](./AUTHORS)|  |
+|[_AUTHORS_](./AUTHORS)| |
 
 
 ## Flowchart
@@ -27,7 +27,7 @@ In this repository you will find our version of a simple UNIX commandinterpreter
 ![simple shell](https://drive.google.com/file/d/1Z7BNehEKgjuSN0KvQpVMDP3LIBhBybGW/view?ts=611afb8e)
 
 ## Authors
-- [_Laura Callejas_](https://github.com/Laurajcb) - 
-- [_Edisson Osorio_](https://github.com/edisson11osorio) - edisson12@gmail.com
+- [_Laura Callejas_](https://github.com/Laurajcb) - callejaslaura96@gmail.com
+- [_Edisson Osorio_](https://github.com/edisson11osorio) - edissonosi12@gmail.com
 
  
