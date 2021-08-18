@@ -11,6 +11,9 @@ In this repository you will find our version of a simple UNIX commandinterpreter
 
 * To see the shell manual you must execute this command.
 
+## Flowchart
+
+![simple shell](https://drive.google.com/file/d/1Z7BNehEKgjuSN0KvQpVMDP3LIBhBybGW/view?ts=611afb8e)
 
 ## Authors
 - [_Laura Callejas_]
