@@ -1,5 +1,6 @@
 #include "shell.h"
 
+
 int main(void)
 {
 	int i = 1;
@@ -26,11 +27,11 @@ int main(void)
 		tokens = tokenize_getline(data_line);
 		if (not_buildin(tokens))
 		{
-			get_dir(tokens); //path & dir ./ to be replaced tokens[1]
+			get_dir(tokens); //path & dir ./ to be replaced tokens[1].
 			execute(tokens); // use with fork and execute in child
 		}
 
-		//validate if is one built-in else built-in create fork and execute in child
+		//validate if is one built-in else built-in create fork and execute in child.
 		if (execve(tokens[0], tokens, NULL) == -1)
 			perror("Error");
 	}
