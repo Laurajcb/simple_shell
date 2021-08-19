@@ -27,8 +27,8 @@ int main(void)
 		tokens = tokenize_getline(data_line);
 		if (not_buildin(tokens))
 		{
-			get_dir(tokens); //path & dir ./ to be replaced tokens[1].
-			execute(tokens); // use with fork and execute in child
+			 //path & dir ./ to be replaced tokens[1].
+			// execute(tokens); // use with fork and execute in child
 		}
 
 		//validate if is one built-in else built-in create fork and execute in child.

@@ -15,6 +15,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 #include <limits.h>
+// MACROS
 #define PROMPT ("$ ")
 #define true (1)
 #define false (!true)
@@ -38,8 +39,12 @@ typedef struct data_input
 
 int _get_promptline(data_input_t *data);
 void _prompt(void);
-char *_get_params(data_input_t *data);
+int not_buildin(char **tokens);
+void _env(char **tokens);
 char **tokenize_getline(data_input_t *data);
+char **own_path(char *VarName);
+void get_dir(char **tokens);
+void _exitt(char **tokens);
 
 
 
@@ -64,10 +69,9 @@ void _env(char **tokens);
 */
 int _putchar(char c);
 int _strlen(char *s);
-char *_strchr(char *s, char c);
 int _strcmp(char *s1, char *s2);
 void _putstr(char *str);
-
+char *_strcpy(char *dest, char *src);
 
 
 #endif

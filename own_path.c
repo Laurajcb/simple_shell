@@ -1,24 +1,23 @@
 #include "shell.h"
 
-#define TESTING_OF_OWN_PATH
+/**
+ * own_path-function to get the env
+ * 
+ */
 
-char **own_path(void)
+extern char **environ;
+
+char **own_path(char *VarName)
 {
     int i = 0;
-    for(i = 0; environ[i]; i++)
+
+    char *token;
+    char *copy = malloc(sizeof(char) * 1024);
+
+    for (i = 0; environ[i] != NULL; i++)
     {
-        _putstr("%s\n",environ[i]);
+        _strcpy(copy, environ[i]);
+        token = strtok(copy, "=");
+        token = strtok(NULL, "=");
     }
-
 }
-
-#ifdef TESTING_OF_OWN_PATH
-int main()
-{
-
-}
-
-
-
-
-#endif

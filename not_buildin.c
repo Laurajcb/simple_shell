@@ -1,6 +1,6 @@
 #include "shell.h"
 //return 0 if is found otherwise 1//
-#define TESTING_OF_NO_BUITDINT
+// #define TESTING_OF_NO_BUITDINT
 int not_buildin(char **tokens)
 {
 	int i = 0;
@@ -19,7 +19,7 @@ int not_buildin(char **tokens)
 			builints[i].func(tokens);
 			return (false);
 		}
-	}
+	} 
 	return (true);
 }
 	
