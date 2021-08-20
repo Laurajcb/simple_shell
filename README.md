@@ -16,10 +16,19 @@ In this repository you will find our version of a simple UNIX commandinterpreter
  This project has been tested on `Ubuntu 14.06.6 LTS`
 ```
 
-| **NAME OF THE FILE** | CONTENT |
+| **NAME** | CONTENT |
 |---|---|
 |[_README.md_](./README.md)| It contains all the information about the project and all its content.
-|[_AUTHORS_](./AUTHORS)| |
+|[_shell.c_](./shell.c)| description.|
+|[_shell.h_](./shell.h)| description.|
+|[_get_promptline_](./_get_promptline.c)|.|
+|[_prompt_](./prompt.c)|.|
+|[_not_buildin_](./not_buildin.c)|.|
+|[_env_](./_env.c)|.|
+|[_tokenize_getline_](./tokenize_getline.c)|.|
+
+|[_AUTHORS_](./AUTHORS)| File in which the people who contributed to this project are listed.|
+
 
 
 ## Flowchart
