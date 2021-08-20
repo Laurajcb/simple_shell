@@ -33,7 +33,7 @@ int _strlen(char *s)
  *@s1: string 1 to comparate
  *@s2: string 2 to comparate
  *@n: number of characters to comparate
- *Return: 0 is success o -1 is fail
+ *Return: 1 is success o 0 is fail
  */
 
 int _strcmp(char *s1, char *s2)
@@ -83,4 +83,37 @@ char *_strcpy(char *dest, char *src)
 		dest[i] = src[i];
 	dest[i] = '\0';
 	return (dest);
+}
+
+/**
+ * _strncat- funtion that concatenate 2 strings
+ *@dest: where we appends src
+ *@src: the source string to cp
+ *@n:int
+ * Return: cahr
+ */
+
+char *_strncat(char *dest, char *src)
+{
+	int i = 0;
+	int j = 0;
+	char *copy = malloc(sizeof(char) * 1024);
+	if(copy == NULL)
+	{
+		return (NULL);
+	}
+
+	for (i = 0; dest[i] != '\0'; i++)
+	{
+		copy[i] = dest[i];
+	}
+
+	for (j = 0; src[j] != '\0'; j++)
+	{
+		copy[i + j] = src[j];
+	}
+
+	copy[i + j] = '\0';
+
+	return (copy);
 }

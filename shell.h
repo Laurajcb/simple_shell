@@ -20,7 +20,6 @@
 #define true (1)
 #define false (!true)
 
-
 extern char **environ;
 
 /**
@@ -42,12 +41,10 @@ void _prompt(void);
 int not_buildin(char **tokens);
 void _env(char **tokens);
 char **tokenize_getline(data_input_t *data);
-char **own_path(char *VarName);
+char *get_env_var(char *var_name);
+int execute(char **tokens,char *_paths);
 void get_dir(char **tokens);
 void _exitt(char **tokens);
-
-
-
 
 /**
 * struct para my build-in 
@@ -60,8 +57,8 @@ typedef struct mybuild
 /**
 * functions that cointains  buil-in functions
 */
-void _exitt(char **tokens);
-void _env(char **tokens);
+//void _exitt(char **tokens);
+//void _env(char **tokens);
 
 
 /**
@@ -72,6 +69,7 @@ int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 void _putstr(char *str);
 char *_strcpy(char *dest, char *src);
+char *_strncat(char *dest, char *src);
 
 
 #endif

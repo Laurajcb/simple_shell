@@ -11,7 +11,7 @@ char **tokenize_getline(data_input_t *data)
     {
         return (NULL);
     }
-
+    printf("hola llege a la funcion que tokenized\n");
     token[0] = strtok(data->input_array, " \n");
     tmp = data->input_array;
     while (tmp)
