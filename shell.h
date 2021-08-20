@@ -18,7 +18,7 @@
 // MACROS
 #define PROMPT ("$ ")
 #define true (1)
-#define false (!true)
+#define false (0)
 
 extern char **environ;
 
@@ -44,7 +44,7 @@ char **tokenize_getline(data_input_t *data);
 char *get_env_var(char *var_name);
 int execute(char **tokens,char *_paths);
 void get_dir(char **tokens);
-void _exitt(char **tokens);
+
 
 /**
 * struct para my build-in 
@@ -57,8 +57,8 @@ typedef struct mybuild
 /**
 * functions that cointains  buil-in functions
 */
-//void _exitt(char **tokens);
-//void _env(char **tokens);
+void _exitt(char **tokens);
+void _env(char **tokens);
 
 
 /**

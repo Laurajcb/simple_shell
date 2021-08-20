@@ -1,9 +1,5 @@
 #include "shell.h"
 
-/*
-	argc = 3
-	argv = ["./s", "exit", "hola", NULL] -> "exit hola"
-*/
 int main(int argc, char **argv)
 {
 	int i = 1;
@@ -23,10 +19,8 @@ int main(int argc, char **argv)
 	{
 		_prompt();
 		readed_chars = _get_promptline(data_line);
-		if (readed_chars == -1)
-		{
-			return (-1);
-		}
+		if (readed_chars == -1) return (-1);
+		if (readed_chars == 1) continue;
 
 		tokens = tokenize_getline(data_line);
 		if (not_buildin(tokens))
@@ -34,13 +28,6 @@ int main(int argc, char **argv)
 			_paths = get_env_var("PATH");
 			execute(tokens, _paths);	
 		}
-		else
-		{
-			//validate if is one built-in else built-in create fork and execute in child.
-			if (execve(tokens[0], tokens, NULL) == -1)
-				perror("Error");
-		}
-
 	}
 	free(data_line);
 	free(_paths);
