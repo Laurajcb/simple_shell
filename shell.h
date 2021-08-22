@@ -43,6 +43,7 @@ void _env(char **tokens);
 char **tokenize_getline(data_input_t *data);
 char *get_env_var(char *var_name);
 void get_dir(char **tokens);
+void _exitt(char **tokens);
 int run_script(char *path_file,char **tokens);
 char *find_pathfile(char **tokens, char *_paths);
 

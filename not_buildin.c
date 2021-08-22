@@ -5,7 +5,7 @@ int not_buildin(char **tokens)
 {
 	int i = 0;
 	
-	printf("esta es al funcion no buldin\n");
+	// printf("esta es al funcion no buldin\n");
 	mybuild_t builints[] = {
 		{"exit", _exitt},
 		{"env", _env},
