@@ -7,9 +7,9 @@
 */
 char *find_pathfile(char **tokens, char *_paths)
 {
-	char *path, *path_file = NULL;
-	pid_t child_pid;
-	int status;
+	char *path;
+	char *path_file = NULL;
+	
 
 	path = strtok(_paths, ":");
 	while (path != NULL)
@@ -19,7 +19,7 @@ char *find_pathfile(char **tokens, char *_paths)
 
 		if (access(path_file, F_OK) == 0)
 		{
-			return(path_file);
+			return (path_file);
 		}
 		path = strtok(NULL, ":");
 	}

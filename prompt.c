@@ -5,7 +5,7 @@
 * Return : void
 */
 
-void _prompt(void)
+void prompt(void)
 {
 	if (isatty(STDOUT_FILENO))
 	{

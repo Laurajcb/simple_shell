@@ -1,46 +1,59 @@
 #include "shell.h"
-//return 0 if is found otherwise 1//
-// #define TESTING_OF_NO_BUITDINT
+
+/**
+* not_buildin- function that check if comd is not boiulin
+* @tokens: contais all the parameters gotten by the terminal
+* Return: true if is not boitlin otherwise false
+*/
+
 int not_buildin(char **tokens)
 {
 	int i = 0;
-	
-	printf("esta es al funcion no buldin\n");
+
 	mybuild_t builints[] = {
 		{"exit", _exitt},
 		{"env", _env},
-		{"env", _env},
-		{"env", _env},
 		{NULL, NULL},
 	};
-	for(i = 0; builints[i].type; i++)
+
+	for (i = 0; builints[i].type; i++)
 	{
-		if (_strcmp(builints[i].type ,tokens[0]))
+		if (_strcmp(builints[i].type, tokens[0]))
 		{
 			builints[i].func(tokens);
 			return (false);
 		}
-	} 
+	}
 	return (true);
 }
-	
-#ifdef TESTING_OF_NO_BUITDINT
 
-int main(int argc, char **argv)
+
+/**
+* _env- function that shows the variables of the system
+* @tokens: is the array of the str of the input
+* Return: true if is not boitlin otherwise false
+*/
+
+void _env()
 {
-	(void)argc;
-	argv += 1;
-	not_buildin(argv);
-	if (not_buildin(argv))
-	{
-		printf("is no build-in\n");
-	}
-	else
-	{
-		printf("is build-in \n");
-	}
-	return (0);
+   int i = 0;
+
+   for (i = 0; environ[i] != NULL; i++)
+   {
+      _putstr(environ[i]);
+      _putstr("\n");
+   }
+} 
+
+/**
+* _exitt- exit the curren programm when is call it
+* @tokens: contains the array of str input
+* Return: void
+*/
+
+void _exitt()
+{
+	
+	exit(0);
+	
 }
-
-
-#endif

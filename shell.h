@@ -3,7 +3,7 @@
 
 /**
  * Header File - shell.h
- * Authors: Edisson Osorio & Laura Callejas 
+ * Authors: Edisson Osorio & Laura Callejas
  */
 
 #include <stdio.h>
@@ -15,7 +15,7 @@
 #include <errno.h>
 #include <sys/stat.h>
 #include <limits.h>
-// MACROS
+
 #define PROMPT ("$ ")
 #define true (1)
 #define false (0)
@@ -23,8 +23,10 @@
 extern char **environ;
 
 /**
- * struct env_var - enviroment vars
- * Description: struct have ...
+ * struct data_input- has the input
+ * @input_array:it has the line gotten by getline
+ * @input_size: it has the number of chars
+ * Description: struct contains the info about readed a line
  */
 typedef struct data_input
 {
@@ -32,40 +34,34 @@ typedef struct data_input
 	size_t input_size;
 } data_input_t;
 
-/**
-* main functions
-*/
 
-int _get_promptline(data_input_t *data);
-void _prompt(void);
+int get_promptline(data_input_t *data);
+void prompt(void);
 int not_buildin(char **tokens);
-void _env(char **tokens);
 char **tokenize_getline(data_input_t *data);
 char *get_env_var(char *var_name);
 void get_dir(char **tokens);
-int run_script(char *path_file,char **tokens);
+int run_script(char *path_file, char **tokens);
 char *find_pathfile(char **tokens, char *_paths);
 
-
-
 /**
-* struct para my build-in 
-*/
+ * struct mybuild- has the builtin funct
+ * @type:is the identifier of the cmd
+ * @func: is the function
+ * Description: struct contains the info to do the builtin cmds
+ */
 typedef struct mybuild
 {
 	char *type;
 	void (*func)(char **tokens);
 } mybuild_t;
-/**
-* functions that cointains  buil-in functions
-*/
-void _exitt(char **tokens);
-void _env(char **tokens);
 
 
-/**
-* funct_helpers
-*/
+void _exitt();
+void _env();
+
+
+
 int _putchar(char c);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);

@@ -5,19 +5,15 @@
 * @argv: is the string of params
 * Return: 0 on succes otherwise -1.
 */
-int main(int argc, char **argv)
+int main()
 {
-	int i = 1;
 	int readed_chars = 0;
 	char **tokens = NULL;
 	data_input_t *data_line;
-	char *executable_path = *argv; //to handle errors in the future//
 	char *path_file, *_paths = malloc(sizeof(char) * 1024);
 
 	if (_paths == NULL)
 		return (-1);
-
-	(void)argc;
 
 	data_line = malloc(sizeof(data_input_t));
 	if (data_line == NULL)
@@ -25,8 +21,8 @@ int main(int argc, char **argv)
 
 	while (readed_chars != -1)
 	{
-		_prompt();
-		readed_chars = _get_promptline(data_line);
+		prompt();
+		readed_chars = get_promptline(data_line);
 		if (readed_chars == -1)
 			return (-1);
 		if (readed_chars == 1)
