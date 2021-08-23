@@ -16,6 +16,10 @@
 #include <sys/stat.h>
 #include <limits.h>
 #include <stdarg.h>
+#include <fcntl.h>
+#include <stddef.h>
+
+
 
 
 #define PROMPT ("$ ")

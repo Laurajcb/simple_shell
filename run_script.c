@@ -17,8 +17,7 @@ void run_script(char *path_file, char **tokens)
 	{
 		if (execve(path_file, tokens, NULL) == -1)
 		{
-			printf("Error");
-			
+			d_printf(STDERR_FILENO, "Error");
 		}
 		exit(errno);
 	}

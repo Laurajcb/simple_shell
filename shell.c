@@ -43,7 +43,7 @@ int main(int ac, char **av)
 			run_script(path_file, tokens);
 		}
 		
-		d_printf(STDERR_FILENO,"contador:%d\n",count);
+		/*d_printf(STDERR_FILENO,"contador:%d\n",count);*/
 	}
 	free(data_line);
 	free(_paths);

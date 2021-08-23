@@ -1,10 +1,12 @@
+#include "shell.h"
+
 /**
  * _atoi - converts character to integer
  * @c: the given character
  *
  * Return: An integer
  */
-int _atoi(char c)
+int _atoi(char *c)
 {
 	unsigned int val = 0;
 	int sign = 1;
