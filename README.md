@@ -33,10 +33,12 @@ In this repository you will find our version of a simple UNIX commandinterpreter
 
 ## Flowchart
 
-![simple shell](https://drive.google.com/file/d/1Z7BNehEKgjuSN0KvQpVMDP3LIBhBybGW/view?ts=611afb8e)
+![simple shell](flowchar..)
 
 ## Authors
+- [_Angelica Rodiguez_](https://github.com/angelicarm3) - angie00069@gmail.com 
+- [_Carlos Matallana_](https://github.com/CarlosMatallana-prog) -
 - [_Laura Callejas_](https://github.com/Laurajcb) - callejaslaura96@gmail.com
-- [_Edisson Osorio_](https://github.com/edisson11osorio) - edissonosi12@gmail.com
 
+ 
  

@@ -62,7 +62,10 @@ void remove_spaces(char *str)
 	}
 }
 
-
+/**
+ * d_printf- 
+ * @str:  string to remove spaces
+ */
 int d_printf (int fd, const char *format, ...)
 {
 	char str_to_print[1024], number_toprint[24];
@@ -106,39 +109,45 @@ int d_printf (int fd, const char *format, ...)
  */
 int int_to_str(int x, char str[])
 {
-	int i = 0;
+    int i = 0;
 
-	if (x == INT_MIN)
-	{
-		str[0] = '-';
-		str[1] = '2';
-		str[2] = '1';
-		str[3] = '4';
-		str[4] = '7';
-		str[5] = '4';
-		str[6] = '8';
-		str[7] = '3';
-		str[8] = '6';
-		str[9] = '4';
-		str[10] = '8';
-		str[11] = '\0';
-		return (11);
-	}
-	if (x < 0)
-	{
-		x = (x * -1);
-		str[i] = '-';
-		i++;
-	}
-	while (x)
-	{
-		str[i++] = (x % 10) + '0';
-		x = x / 10;
-	}
-	reverse(str, i);
-	str[i] = '\0';
-	return (i);
+    if (x == INT_MIN)
+    {
+        str[0] = '0';
+        str[1] = '2';
+        str[2] = '1';
+        str[3] = '4';
+        str[4] = '7';
+        str[5] = '4';
+        str[6] = '8';
+        str[7] = '3';
+        str[8] = '6';
+        str[9] = '4';
+        str[10] = '8';
+        str[11] = '\0';
+        return (11);
+    }
+    if (x < 0)
+    {
+        x = (x * -1);
+        str[i] = '-';
+        i++;
+    }
+    while (x)
+    {
+        str[i++] = (x % 10) + '0';
+        x = x / 10;
+    }
+    reverse(str, i);
+    str[i] = '\0';
+    if (i == 0)
+    {
+        str[0] = '0';
+        str[1] = '\0';
+    }
+    return (i);
 }
+
 
 /**
  * reverse - function that reverse a string

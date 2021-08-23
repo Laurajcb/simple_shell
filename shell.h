@@ -47,7 +47,6 @@ void run_script(char *path_file, char **tokens);
 char *find_pathfile(char **tokens, char *_paths);
 void replace_var(char **tokens);
 int check_file(char *path_file, int count, char *executable);
-int d_printf (int fd, const char *format, ...);
 
 /**
  * struct mybuild- has the builtin funct
@@ -71,7 +70,6 @@ int _putchar(char c);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
 char *_strcat(char *dest, char *src);
-int int_to_str(int x, char str[]);
 int intlen(int num);
 int _atoi(char *c);
 void _putstr(char *str);
@@ -79,6 +77,8 @@ char *_strcpy(char *dest, char *src);
 char *_strncat(char *dest, char *src);
 void remove_spaces(char *str);
 void reverse(char *str, int len);
+int int_to_str(int x, char str[]);
+int d_printf (int fd, const char *format, ...);
 
 
 #endif
