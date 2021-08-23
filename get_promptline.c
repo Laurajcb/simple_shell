@@ -14,9 +14,10 @@ int get_promptline(data_input_t *data)
 
 	readed_char = getline(&line, &lineSize, stdin);
 	line[readed_char - 1] = '\0';
-
+	
 	data->input_array = line;
 	data->input_size = lineSize;
 
 	return (readed_char);
+
 }

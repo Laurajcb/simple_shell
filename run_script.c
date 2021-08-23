@@ -1,7 +1,7 @@
 #include "shell.h"
 
 /**
-* run_script- function that find the executable in the phats
+* run_script- function that find the executable in the paths
 * @tokens: contais all the parameters gotten by the terminal
 * @path_file: where we going to look for
 * Return: true on succes otherwise -1.
@@ -25,12 +25,10 @@ int run_script(char *path_file, char **tokens)
 	else
 	{
 		wait(&status);
-		if (status == 0)
-			return (true);
-
+		if (status == 0) return (true);
+			
 		else
 		{
-			printf("fallido\n");
 			return (-1);
 		}
 	}

@@ -43,6 +43,7 @@ char *get_env_var(char *var_name);
 void get_dir(char **tokens);
 int run_script(char *path_file, char **tokens);
 char *find_pathfile(char **tokens, char *_paths);
+void replace_var(char **tokens);
 
 /**
  * struct mybuild- has the builtin funct
@@ -57,7 +58,7 @@ typedef struct mybuild
 } mybuild_t;
 
 
-void _exitt();
+void _exitt(char **tokens);
 void _env();
 
 
@@ -68,6 +69,9 @@ int _strcmp(char *s1, char *s2);
 void _putstr(char *str);
 char *_strcpy(char *dest, char *src);
 char *_strncat(char *dest, char *src);
+int _atoi(char *s);
+void remove_spaces(char *str);
+int check_file( char *path_file);
 
 
 #endif

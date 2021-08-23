@@ -27,12 +27,14 @@ int main()
 			return (-1);
 		if (readed_chars == 1)
 			continue;
-
 		tokens = tokenize_getline(data_line);
+		remove_spaces(tokens[0]);
 		if (not_buildin(tokens))
 		{
 			_paths = get_env_var("PATH");
 			path_file = find_pathfile(tokens, _paths);
+			if (path_file == NULL) continue;
+			if (check_file(path_file) == false) continue;
 			run_script(path_file, tokens);
 		}
 	}

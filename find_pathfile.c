@@ -9,7 +9,11 @@ char *find_pathfile(char **tokens, char *_paths)
 {
 	char *path;
 	char *path_file = NULL;
-	
+
+	if (access(tokens[0], F_OK) == 0)
+	{
+		return (tokens[0]);
+	}
 
 	path = strtok(_paths, ":");
 	while (path != NULL)

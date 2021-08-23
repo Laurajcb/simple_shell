@@ -8,9 +8,9 @@
 
 char **tokenize_getline(data_input_t *data)
 {
+	int i = 1;
 	char **token = malloc(sizeof(char *) * 1024);
 	char *tmp = NULL;
-	int i = 1;
 
 	if (token == NULL)
 	{

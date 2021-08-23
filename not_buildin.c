@@ -51,9 +51,15 @@ void _env()
 * Return: void
 */
 
-void _exitt()
+void _exitt(char **tokens)
 {
-	
-	exit(0);
-	
+	int status = 0;
+
+	if (tokens[1] == NULL)
+	{
+		exit(status);
+	}
+
+	status = _atoi(tokens[1]);
+	exit(status);	
 }
