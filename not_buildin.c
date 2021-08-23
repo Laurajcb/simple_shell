@@ -53,7 +53,7 @@ void _env()
 
 void _exitt(char **tokens)
 {
-	int status = 0;
+	int status = errno;
 
 	if (tokens[1] == NULL)
 	{

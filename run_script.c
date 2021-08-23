@@ -7,29 +7,25 @@
 * Return: true on succes otherwise -1.
 */
 
-int run_script(char *path_file, char **tokens)
+void run_script(char *path_file, char **tokens)
 {
-	pid_t child_pid;
-	int status;
+	pid_t child_pid = 0;
+	int status = 0;
 
 	child_pid = fork();
 	if (child_pid == 0)
 	{
 		if (execve(path_file, tokens, NULL) == -1)
 		{
-			perror("Error");
-			return (-1);
+			printf("Error");
+			
 		}
-		return (true);
+		exit(errno);
 	}
 	else
 	{
 		wait(&status);
-		if (status == 0) return (true);
-			
-		else
-		{
-			return (-1);
-		}
+		
 	}
+	
 }

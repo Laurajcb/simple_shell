@@ -1,7 +1,9 @@
 #include "shell.h"
 
-int check_file(char *path_file)
+int check_file(char *path_file, int count, char *executable)
 {
+    (void)executable;
+    
     if (access(path_file, R_OK) == 0)
     {
 
@@ -11,13 +13,14 @@ int check_file(char *path_file)
         }
         else
         {
-            perror("Error no ./");
+            if (access(path_file, R_OK) == -1)
+                d_printf(STDERR_FILENO, "%s: %d: Permission denied\n", path_file, count);
             return (false);
         }
     }
     else
     {
-        perror("0: Can't open ");
+      d_printf(STDERR_FILENO, "%d: Can't open %s", count, path_file);
         return (false);
     }
 }

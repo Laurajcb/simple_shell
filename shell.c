@@ -1,16 +1,16 @@
 #include "shell.h"
 /**
 * main- function emulates a shell
-* @argc: is the counter of argv
-* @argv: is the string of params
 * Return: 0 on succes otherwise -1.
 */
-int main()
+int main(int ac, char **av)
 {
-	int readed_chars = 0;
+	int readed_chars = 0, count = 0; 
 	char **tokens = NULL;
 	data_input_t *data_line;
 	char *path_file, *_paths = malloc(sizeof(char) * 1024);
+	errno = 0;
+	(void)ac;
 
 	if (_paths == NULL)
 		return (-1);
@@ -28,15 +28,19 @@ int main()
 		if (readed_chars == 1)
 			continue;
 		tokens = tokenize_getline(data_line);
+		if (tokens[0] == NULL) continue;
+		
 		remove_spaces(tokens[0]);
 		if (not_buildin(tokens))
 		{
 			_paths = get_env_var("PATH");
 			path_file = find_pathfile(tokens, _paths);
 			if (path_file == NULL) continue;
-			if (check_file(path_file) == false) continue;
+			if (check_file(path_file, count) == false) continue;
 			run_script(path_file, tokens);
 		}
+		count++;
+		printf("contador:%d\n",count);
 	}
 	free(data_line);
 	free(_paths);

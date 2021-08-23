@@ -15,6 +15,8 @@
 #include <errno.h>
 #include <sys/stat.h>
 #include <limits.h>
+#include <stdarg.h>
+
 
 #define PROMPT ("$ ")
 #define true (1)
@@ -41,9 +43,11 @@ int not_buildin(char **tokens);
 char **tokenize_getline(data_input_t *data);
 char *get_env_var(char *var_name);
 void get_dir(char **tokens);
-int run_script(char *path_file, char **tokens);
+void run_script(char *path_file, char **tokens);
 char *find_pathfile(char **tokens, char *_paths);
 void replace_var(char **tokens);
+int check_file(char *path_file, int count, char *executable);
+int d_printf (int fd, const char *format, ...);
 
 /**
  * struct mybuild- has the builtin funct
@@ -66,12 +70,15 @@ void _env();
 int _putchar(char c);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
+char *_strcat(char *dest, char *src);
+int int_to_str(int x, char str[]);
+int intlen(int num);
+int _atoi(char *c);
 void _putstr(char *str);
 char *_strcpy(char *dest, char *src);
 char *_strncat(char *dest, char *src);
-int _atoi(char *s);
 void remove_spaces(char *str);
-int check_file( char *path_file);
+void reverse(char *str, int len);
 
 
 #endif
