@@ -41,16 +41,16 @@ typedef struct data_input
 } data_input_t;
 
 
-int get_promptline(data_input_t *data);
+ssize_t get_promptline(data_input_t *data);
 void prompt(void);
 int not_buildin(char **tokens);
 char **tokenize_getline(data_input_t *data);
 char *get_env_var(char *var_name);
 void get_dir(char **tokens);
-void run_script(char *path_file, char **tokens);
+void run_script(char *path_file, char **tokens, char *av);
 char *find_pathfile(char **tokens, char *_paths);
 void replace_var(char **tokens);
-int check_file(char *path_file, int count, char *executable);
+int check_file(char *path_file, int count, char *token, char *executable);
 
 /**
  * struct mybuild- has the builtin funct
@@ -83,6 +83,6 @@ void remove_spaces(char *str);
 void reverse(char *str, int len);
 int int_to_str(int x, char str[]);
 int d_printf (int fd, const char *format, ...);
-
+int grepVariable(char *variable_env, char *var_name);
 
 #endif

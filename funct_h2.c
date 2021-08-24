@@ -174,3 +174,19 @@ void reverse(char *str, int len)
 	}
 }
 
+
+int grepVariable(char *variable_env, char *var_name)
+{
+	int i = 0;
+
+	if (variable_env == NULL || var_name == NULL)
+		return (0);
+
+	for (i = 0; var_name[i]; i++)
+	{
+		if (variable_env[i] != var_name[i])
+			break;
+	}
+	return (var_name[i] == '\0');
+
+}

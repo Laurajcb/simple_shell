@@ -6,17 +6,15 @@
 * Return: the chars readed
 */
 
-int get_promptline(data_input_t *data)
+ssize_t get_promptline(data_input_t *data)
 {
-	char *line = NULL;
-	size_t lineSize = 0;
-	int readed_char = 0;
+	ssize_t readed_char = 0;
 
-	readed_char = getline(&line, &lineSize, stdin);
-	line[readed_char - 1] = '\0';
-	
-	data->input_array = line;
-	data->input_size = lineSize;
+	readed_char = getline(&(data->input_array), &(data->input_size), stdin);
+	if (readed_char > 0)
+	{
+		data->input_array[readed_char - 1] = '\0';
+	}
 
 	return (readed_char);
 

@@ -7,7 +7,7 @@
 * Return: true on succes otherwise -1.
 */
 
-void run_script(char *path_file, char **tokens)
+void run_script(char *path_file, char **tokens, char *av)
 {
 	pid_t child_pid = 0;
 	int status = 0;
@@ -17,7 +17,7 @@ void run_script(char *path_file, char **tokens)
 	{
 		if (execve(path_file, tokens, NULL) == -1)
 		{
-			d_printf(STDERR_FILENO, "Error");
+			d_printf(STDERR_FILENO, "%s: %s: Permission denied", av, tokens[0]);
 		}
 		exit(errno);
 	}

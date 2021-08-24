@@ -12,22 +12,19 @@
 char *get_env_var(char *var_name)
 {
 	int i = 0;
-	char *key;
-	char *value;
-	char *current_env = malloc(sizeof(char) * 2048);
+	char *current_env = NULL;
+	int size = 0;
 
 	for (i = 0; environ[i] != NULL; i++)
 	{
-		_strcpy(current_env, environ[i]);
-		key = strtok(current_env, "=");
-		if (_strcmp(var_name, key))
+		if (grepVariable(environ[i], var_name))
 		{
-			value = strtok(NULL, "\n");
-			
-			free(current_env);
-			return (value);
+			size = _strlen(environ[i]) - _strlen(var_name);
+			current_env = malloc(sizeof(char) * size + 1);
+			_strcpy(current_env, environ[i] + _strlen(var_name));
+			return (current_env);
 		}
 	}
-	free(current_env);
 	return (NULL);
+
 }
