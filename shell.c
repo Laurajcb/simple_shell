@@ -44,7 +44,6 @@ int main(int ac, char **av)
 		}
 
 	}
-	free(readed_chars); /*@TODO revisar free buffer of getline*/
 	free(data_line);
 	free(_paths);
 	return (0);
