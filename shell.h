@@ -49,7 +49,6 @@ char *get_env_var(char *var_name);
 void get_dir(char **tokens);
 void run_script(char *path_file, char **tokens, char *av);
 char *find_pathfile(char **tokens, char *_paths);
-void replace_var(char **tokens);
 int check_file(char *path_file, int count, char *token, char *executable);
 
 /**
