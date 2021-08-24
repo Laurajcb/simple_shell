@@ -2,7 +2,7 @@
 
 int check_file(char *path_file, int count, char *token, char *executable)
 {
-
+	printf("Este es count %d:\n",count);
 	if (access(path_file, F_OK) == 0)
 	{
 
@@ -12,7 +12,8 @@ int check_file(char *path_file, int count, char *token, char *executable)
 		}
 		else if (access(path_file, X_OK) == -1)
 		{
-			d_printf(STDERR_FILENO, "%s: %d: %s: Permission denied\n", executable, count, path_file);
+			d_printf(STDERR_FILENO, "%s: %d: %s  Permission denied\n", executable, count, token);
+			/*to check */
 		}
 		else if (access(path_file, R_OK) == -1)
 		{
@@ -20,11 +21,11 @@ int check_file(char *path_file, int count, char *token, char *executable)
 		}
 		else if (_strlen(token) >= 256)
 		{
-			d_printf(STDERR_FILENO, "%s: %d: %s: File name too long\n",executable, count - 1, path_file);
+			d_printf(STDERR_FILENO, "%d: %s: File name too long\n", count - 1, path_file);
 		}
 		else if (access(path_file, F_OK) == -1)
 		{
-			d_printf(STDERR_FILENO, "%s: %d: %s: not found\n", executable, count - 1, path_file);
+			d_printf(STDERR_FILENO, "%d: %s: not found\n", count - 1, path_file);
 		}
 		else
 		{
@@ -38,4 +39,5 @@ int check_file(char *path_file, int count, char *token, char *executable)
 		d_printf(STDERR_FILENO, "%s: %d: Can't open %s\n", executable, count, path_file);
 		return (false);
 	}
+	return (0);
 }
