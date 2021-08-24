@@ -19,12 +19,13 @@
 #unignore .sh files in each directory
 !*/*.sh
 
-
 #unignore .gitignore
 !.gitignore
 
 #ignore compiled files
 *-main.c
+a.out
+*.gch
 
 #ignore backup files
 *.*~
@@ -32,5 +33,3 @@
 #ignore clion files
 .idea
 CMakeLists.txt
-a.out
-*.gch

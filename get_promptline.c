@@ -2,7 +2,7 @@
 
 /**
 * get_promptline- read the line, and assing the values
-* @data:is the object that contains the line
+* @data: is the object that contains the line
 * Return: the chars readed
 */
 

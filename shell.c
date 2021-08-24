@@ -21,7 +21,7 @@ int main(int ac, char **av)
 	if (data_line == NULL)
 		return (-1);
 
-	while (readed_chars != -1)
+	while (readed_chars != EOF)
 	{
 		prompt();
 		readed_chars = get_promptline(data_line);
@@ -42,9 +42,9 @@ int main(int ac, char **av)
 			if (check_file(path_file, count -1, " ") == false) continue;
 			run_script(path_file, tokens);
 		}
-		
-		/*d_printf(STDERR_FILENO,"contador:%d\n",count);*/
+
 	}
+	free(readed_chars); /*@TODO revisar free buffer of getline*/
 	free(data_line);
 	free(_paths);
 	return (0);

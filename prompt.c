@@ -1,4 +1,5 @@
 #include "shell.h"
+#include <unistd.h>
 
 /**
 * prompt - prints the prompt of the shell
