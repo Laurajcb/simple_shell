@@ -4,6 +4,7 @@
 * run_script- function that find the executable in the paths
 * @tokens: contais all the parameters gotten by the terminal
 * @path_file: where we going to look for
+* @av: argument vector.
 * Return: true on succes otherwise -1.
 */
 
@@ -24,7 +25,5 @@ void run_script(char *path_file, char **tokens, char *av)
 	else
 	{
 		wait(&status);
-		
 	}
-	
 }

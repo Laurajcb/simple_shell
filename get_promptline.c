@@ -17,5 +17,4 @@ ssize_t get_promptline(data_input_t *data)
 	}
 
 	return (readed_char);
-
 }

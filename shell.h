@@ -3,7 +3,7 @@
 
 /**
  * Header File - shell.h
- * Authors: Edisson Osorio & Laura Callejas
+ * Authors: Angelica Rodriguez, Carlos Matallana, Laura Callejas
  */
 
 #include <stdio.h>
@@ -19,9 +19,10 @@
 #include <fcntl.h>
 #include <stddef.h>
 
-
-
-
+#define DENIED ("%s: %d: %s  Permission denied\n")
+#define TOOLONG ("%d: %s: File name too long\n")
+#define NOREAD ("%s: %d: %s: Permission denied \n")
+#define NOTFOUND ("%s: %d: %s: not found\n")
 #define PROMPT ("$ ")
 #define true (1)
 #define false (0)
@@ -40,16 +41,15 @@ typedef struct data_input
 	size_t input_size;
 } data_input_t;
 
-
 ssize_t get_promptline(data_input_t *data);
 void prompt(void);
 int not_buildin(char **tokens);
 char **tokenize_getline(data_input_t *data);
-char *get_env_var(char *var_name, int count, char *tokens, char *executable);
+char *get_env_var(char *var_name);
 void get_dir(char **tokens);
 void run_script(char *path_file, char **tokens, char *av);
 char *find_pathfile(char **tokens, char *_paths);
-int check_file(char *path_file);
+int check_file(char *path_file, int count, char *tokens, char *av);
 
 /**
  * struct mybuild- has the builtin funct
@@ -63,12 +63,8 @@ typedef struct mybuild
 	void (*func)(char **tokens);
 } mybuild_t;
 
-
 void _exitt(char **tokens);
-void _env();
-
-
-
+void _env(void);
 int _putchar(char c);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
@@ -81,7 +77,7 @@ char *_strncat(char *dest, char *src);
 void remove_spaces(char *str);
 void reverse(char *str, int len);
 int int_to_str(int x, char str[]);
-int d_printf (int fd, const char *format, ...);
+int d_printf(int fd, const char *format, ...);
 int grepVariable(char *variable_env, char *var_name);
 
 #endif

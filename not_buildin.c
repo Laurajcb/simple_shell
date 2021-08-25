@@ -27,23 +27,21 @@ int not_buildin(char **tokens)
 	return (true);
 }
 
-
 /**
 * _env- function that shows the variables of the system
-* @tokens: is the array of the str of the input
 * Return: true if is not boitlin otherwise false
 */
 
-void _env()
+void _env(void)
 {
-   int i = 0;
+	int i = 0;
 
-   for (i = 0; environ[i] != NULL; i++)
-   {
-      _putstr(environ[i]);
-      _putstr("\n");
-   }
-} 
+	for (i = 0; environ[i] != NULL; i++)
+	{
+		_putstr(environ[i]);
+		_putstr("\n");
+	}
+}
 
 /**
 * _exitt- exit the curren programm when is call it
@@ -59,7 +57,6 @@ void _exitt(char **tokens)
 	{
 		exit(status);
 	}
-
 	status = _atoi(tokens[1]);
-	exit(status);	
+	exit(status);
 }
