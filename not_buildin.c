@@ -12,6 +12,7 @@ int not_buildin(char **tokens)
 
 	mybuild_t builints[] = {
 		{"exit", _exitt},
+		{"env", _env},
 		{NULL, NULL},
 	};
 
@@ -31,9 +32,11 @@ int not_buildin(char **tokens)
 * Return: true if is not boitlin otherwise false
 */
 
-void _env(void)
+void _env(char **tokens)
 {
 	int i = 0;
+
+	(void)tokens;
 
 	for (i = 0; environ[i] != NULL; i++)
 	{

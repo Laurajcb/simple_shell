@@ -64,7 +64,7 @@ typedef struct mybuild
 } mybuild_t;
 
 void _exitt(char **tokens);
-void _env(void);
+void _env(char **tokens);
 int _putchar(char c);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);

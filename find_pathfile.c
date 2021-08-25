@@ -7,19 +7,23 @@
 */
 char *find_pathfile(char **tokens, char *_paths)
 {
-	char *path;
+	char *path = NULL;
+	char *first_concat = NULL;
 	char *path_file = NULL;
+	
 
 	if (access(tokens[0], F_OK) == 0)
 	{
-		return (tokens[0]);
+		path_file = _strncat(tokens[0], "");
+		return (path_file);
 	}
 
 	path = strtok(_paths, ":");
 	while (path != NULL)
 	{
-		path_file = _strncat(path, "/");
-		path_file = _strncat(path_file, tokens[0]);
+		first_concat = _strncat(path, "/");
+		path_file = _strncat(first_concat, tokens[0]);
+		free(first_concat);
 
 		if (access(path_file, F_OK) == 0)
 		{

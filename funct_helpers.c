@@ -76,7 +76,7 @@ char *_strcpy(char *dest, char *src)
  * _strncat- funtion that concatenate 2 strings
  *@dest: where we appends src
  *@src: the source string to cp
- * Return: cahr
+ * Return: char
  */
 
 char *_strncat(char *dest, char *src)
