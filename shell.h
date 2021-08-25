@@ -43,13 +43,14 @@ typedef struct data_input
 
 ssize_t get_promptline(data_input_t *data);
 void prompt(void);
-int not_buildin(char **tokens,int count, char *av, char *_paths, char *path_file, char *input_arr);
+int noBuild(char **tokens, int count, char *av, char *_paths,
+		char *path_file, char *input_arr);
 char **tokenize_getline(data_input_t *data);
 char *get_env_var(char *var_name);
 void get_dir(char **tokens);
 void run_script(char *path_file, char **tokens, char *av);
 char *find_pathfile(char **tokens, char *_paths);
-int checkFile(char *path_file, int count, char *tokens, char *av);
+int check_file(char *path_file, int count, char *tokens, char *av);
 
 /**
  * struct mybuild- has the builtin funct
@@ -60,11 +61,14 @@ int checkFile(char *path_file, int count, char *tokens, char *av);
 typedef struct mybuild
 {
 	char *type;
-	void (*func)(char **tokens, int count, char *av, char *_paths, char *path_file, char *input_arr);
+	void (*func)(char **tokens, int count, char *av, char *_paths,
+		     char *path_file, char *input_arr);
 } mybuild_t;
 
-void _exitt(char **tokens, int count, char *av, char *_paths, char *path_file, char *input_arr);
-void _env(char **tokens, int count, char *av, char *_paths, char *path_file, char *input_arr);
+void _exitt(char **tokens, int count, char *av, char *_paths,
+	    char *path_file, char *input_arr);
+void _env(char **tokens, int count, char *av, char *_paths,
+	  char *path_file, char *input_arr);
 int _putchar(char c);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
@@ -82,15 +86,18 @@ int grepVariable(char *variable_env, char *var_name);
 
 /**
  * struct myfree- has the frees
- * @type:is the identifier of the cmd
- * @func: is the function
+ * @path_file: ?
+ * @_paths: ?
+ * @count: ?
+ * @tokens: ?
+ * @av: ?
  * Description: struct contains the info to do the builtin cmds
  */
 typedef struct myfree
 {
 	char *path_file;
 	char *_paths;
-	int count ;
+	int count;
 	char **tokens;
 	char **av;
 } myfree_t;

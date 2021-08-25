@@ -1,12 +1,18 @@
 #include "shell.h"
 
 /**
-* not_buildin- function that check if comd is not boiulin
+* noBuild - function that check if comd is not boiulin
 * @tokens: contais all the parameters gotten by the terminal
+* @count: ?
+* @av: ?
+* @_paths: ?
+* @path_file: '
+* @input_arr: ?
 * Return: true if is not boitlin otherwise false
 */
 
-int not_buildin(char **tokens, int count, char *av, char *_paths, char *path_file, char *input_arr)
+int noBuild(char **tokens, int count, char *av, char *_paths,
+	    char *path_file, char *input_arr)
 {
 	int i = 0;
 
@@ -30,10 +36,16 @@ int not_buildin(char **tokens, int count, char *av, char *_paths, char *path_fil
 /**
 * _env- function that shows the variables of the system
 * @tokens: contais all the parameters gotten by the terminal
+* @count: ?
+* @av: ?
+* @_paths: ?
+* @path_file: '
+* @input_arr: ?
 * Return: true if is not boitlin otherwise false
 */
 
-void _env(char **tokens, int count, char *av, char *_paths, char *path_file, char *input_arr)
+void _env(char **tokens, int count, char *av, char *_paths,
+	  char *path_file, char *input_arr)
 {
 	int i = 0;
 	(void)tokens;
@@ -52,11 +64,17 @@ void _env(char **tokens, int count, char *av, char *_paths, char *path_file, cha
 
 /**
 * _exitt- exit the curren programm when is call it
-* @tokens: contains the array of str input
+* @tokens: contais all the parameters gotten by the terminal
+* @count: ?
+* @av: ?
+* @_paths: ?
+* @path_file: '
+* @input_arr: ?
 * Return: void
 */
 
-void _exitt(char **tokens, int count, char *av, char *_paths, char *path_file, char *input_arr)
+void _exitt(char **tokens, int count, char *av, char *_paths,
+	    char *path_file, char *input_arr)
 {
 	int status = errno;
 	int i = 0;

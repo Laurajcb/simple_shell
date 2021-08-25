@@ -8,43 +8,43 @@
 int main(int ac __attribute__((unused)), char **av)
 {
 	int readed_chars = 0, count = 0;
-	char **tokens = NULL, *path_file = NULL, *_paths = NULL;
-	data_input_t data_line = {NULL, 0};
+	char **tokens = NULL, *path_fl = NULL, *paths = NULL;
+	data_input_t data_ln = {NULL, 0};
 
 	for (errno = 0; readed_chars != EOF; count++)
 	{
 		prompt();
-		readed_chars = get_promptline(&data_line);
+		readed_chars = get_promptline(&data_ln);
 		if (readed_chars <= 1)
 			continue;
-		tokens = tokenize_getline(&data_line);
+		tokens = tokenize_getline(&data_ln);
 		if (tokens == NULL)
 			continue;
 		remove_spaces(tokens[0]);
-		if (not_buildin(tokens, count, av[0], _paths, path_file, data_line.input_array))
+		if (noBuild(tokens, count, av[0], paths, path_fl, data_ln.input_array))
 		{
-			_paths = get_env_var("PATH=");
-			if (_paths == NULL)
+			paths = get_env_var("PATH=");
+			if (paths == NULL)
 			{
 				free(tokens);
 				continue;
 			}
-			path_file = find_pathfile(tokens, _paths);
-			if (path_file == NULL)
+			path_fl = find_pathfile(tokens, paths);
+			if (path_fl == NULL)
 			{
 				d_printf(STDERR_FILENO, NOTFOUND, av[0], count, tokens[0]);
-				FREEDATA(path_file, _paths, tokens);
+				FREEDATA(path_fl, paths, tokens);
 				continue;
 			}
-			if (checkFile(path_file, count, tokens[0], av[0]))
+			if (check_file(path_fl, count, tokens[0], av[0]))
 			{
-				FREEDATA(path_file, _paths, tokens);
+				FREEDATA(path_fl, paths, tokens);
 				continue;
 			}
-			run_script(path_file, tokens, av[0]);
-			FREEDATA(path_file, _paths, tokens);
+			run_script(path_fl, tokens, av[0]);
+			FREEDATA(path_fl, paths, tokens);
 		}
 	}
-	free(data_line.input_array);
+	free(data_ln.input_array);
 	return (0);
 }
