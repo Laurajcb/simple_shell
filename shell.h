@@ -5,7 +5,6 @@
  * Header File - shell.h
  * Authors: Angelica Rodriguez, Carlos Matallana, Laura Callejas
  */
-
 #include <stdio.h>
 #include <string.h>
 #include <unistd.h>
@@ -18,6 +17,7 @@
 #include <stdarg.h>
 #include <fcntl.h>
 #include <stddef.h>
+
 
 #define DENIED ("%s: %d: %s  Permission denied\n")
 #define TOOLONG ("%d: %s: File name too long\n")
@@ -79,5 +79,18 @@ void reverse(char *str, int len);
 int int_to_str(int x, char str[]);
 int d_printf(int fd, const char *format, ...);
 int grepVariable(char *variable_env, char *var_name);
+
+/**
+* FREEDATA - Function that frees data.
+* @PATHF: This is the paths of the fucntion
+* @PATHS: List of paths.
+* @TOKENS: List of tokens
+*/
+#define FREEDATA(PATHF, PATHS, TOKENS) \
+	do {                               \
+		free(PATHF);                   \
+		free(PATHS);                   \
+		free(TOKENS);                  \
+	} while (0)
 
 #endif

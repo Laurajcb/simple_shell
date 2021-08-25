@@ -10,7 +10,6 @@ char *find_pathfile(char **tokens, char *_paths)
 	char *path = NULL;
 	char *first_concat = NULL;
 	char *path_file = NULL;
-	
 
 	if (access(tokens[0], F_OK) == 0)
 	{
@@ -30,6 +29,8 @@ char *find_pathfile(char **tokens, char *_paths)
 			return (path_file);
 		}
 		path = strtok(NULL, ":");
+		free(path_file);
+		path_file = NULL;
 	}
 	return (NULL);
 }

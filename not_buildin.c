@@ -29,6 +29,7 @@ int not_buildin(char **tokens)
 
 /**
 * _env- function that shows the variables of the system
+* @tokens: contais all the parameters gotten by the terminal
 * Return: true if is not boitlin otherwise false
 */
 
