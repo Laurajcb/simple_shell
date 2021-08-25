@@ -38,7 +38,7 @@ char *get_env_var(char *var_name, int count, char *tokens, char *executable)
 				}
 				else if (access(current_env, R_OK) == -1)
 				{
-					d_printf(STDERR_FILENO, "%s: 0: Can't open %s\n", executable, current_env);
+					d_printf(STDERR_FILENO, "%s: %d: executable not read Permission denied \n", executable, count);
 				}
 				else if (_strlen(tokens) >= 256)
 				{
