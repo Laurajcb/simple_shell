@@ -9,7 +9,7 @@
  * Return: NULL if didn't found the key otherewise the value
  */
 
-char *get_env_var(char *var_name)
+char *get_env_var(char *var_name, int count, char *tokens)
 {
 	int i = 0;
 	char *current_env = NULL;
@@ -22,6 +22,11 @@ char *get_env_var(char *var_name)
 			size = _strlen(environ[i]) - _strlen(var_name);
 			current_env = malloc(sizeof(char) * size + 1);
 			_strcpy(current_env, environ[i] + _strlen(var_name));
+			
+			if (access(current_env, F_OK) == -1)
+			{
+				d_printf(STDERR_FILENO, "%d: %s: not found\n", count - 1, tokens);
+			}
 			return (current_env);
 		}
 	}
