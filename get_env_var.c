@@ -9,6 +9,7 @@
  * Return: NULL if didn't found the key otherewise the value
  */
 
+
 char *get_env_var(char *var_name, int count, char *tokens, char *executable)
 {
 	int i = 0;
@@ -60,6 +61,7 @@ char *get_env_var(char *var_name, int count, char *tokens, char *executable)
 				return (false);
 			}
 			return (current_env);
+
 		}
 	}
 	return (NULL);
