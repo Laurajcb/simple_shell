@@ -21,7 +21,7 @@ int main(int ac __attribute__((unused)), char **av)
 		if (tokens == NULL)
 			continue;
 		remove_spaces(tokens[0]);
-		if (not_buildin(tokens))
+		if (not_buildin(tokens, count, av[0], _paths, path_file, data_line.input_array))
 		{
 			_paths = get_env_var("PATH=");
 			if (_paths == NULL)

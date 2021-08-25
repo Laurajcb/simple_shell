@@ -18,7 +18,7 @@
 #include <fcntl.h>
 #include <stddef.h>
 
-
+#define ILLEGAL ("%s: %d: exit: Illegal number: %s\n")
 #define DENIED ("%s: %d: %s  Permission denied\n")
 #define TOOLONG ("%d: %s: File name too long\n")
 #define NOREAD ("%s: %d: %s: Permission denied \n")
@@ -43,7 +43,7 @@ typedef struct data_input
 
 ssize_t get_promptline(data_input_t *data);
 void prompt(void);
-int not_buildin(char **tokens);
+int not_buildin(char **tokens,int count, char *av, char *_paths, char *path_file, char *input_arr);
 char **tokenize_getline(data_input_t *data);
 char *get_env_var(char *var_name);
 void get_dir(char **tokens);
@@ -60,11 +60,11 @@ int check_file(char *path_file, int count, char *tokens, char *av);
 typedef struct mybuild
 {
 	char *type;
-	void (*func)(char **tokens);
+	void (*func)(char **tokens, int count, char *av, char *_paths, char *path_file, char *input_arr);
 } mybuild_t;
 
-void _exitt(char **tokens);
-void _env(char **tokens);
+void _exitt(char **tokens, int count, char *av, char *_paths, char *path_file, char *input_arr);
+void _env(char **tokens, int count, char *av, char *_paths, char *path_file, char *input_arr);
 int _putchar(char c);
 int _strlen(char *s);
 int _strcmp(char *s1, char *s2);
@@ -81,6 +81,21 @@ int d_printf(int fd, const char *format, ...);
 int grepVariable(char *variable_env, char *var_name);
 
 /**
+ * struct myfree- has the frees
+ * @type:is the identifier of the cmd
+ * @func: is the function
+ * Description: struct contains the info to do the builtin cmds
+ */
+typedef struct myfree
+{
+	char *path_file;
+	char *_paths;
+	int count ;
+	char **tokens;
+	char **av;
+} myfree_t;
+
+/**
 * FREEDATA - Function that frees data.
 * @PATHF: This is the paths of the fucntion
 * @PATHS: List of paths.
@@ -90,7 +105,7 @@ int grepVariable(char *variable_env, char *var_name);
 	do {                               \
 		free(PATHF);                   \
 		free(PATHS);                   \
-		free(TOKENS);                  \
+		free(TOKENS);				    \
 	} while (0)
 
 #endif
