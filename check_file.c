@@ -32,12 +32,5 @@ int check_file(char *path_file, int count, char *executable, char *tokens)
 		return (true);
 	}
 	return (false);
-	/*
-	*else
-	*{
-	*	if (access(path_file, R_OK) == -1)
-	*		d_printf(STDERR_FILENO, "%d: %d: Can't open\n", 22, path_file);
-	*	return (false);
-	*}
-	*/
+	
 }
