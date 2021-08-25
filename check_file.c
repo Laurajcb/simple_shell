@@ -1,35 +1,35 @@
 #include "shell.h"
 
 /**
-* check_file- function that check the path
-* @path_file: contains all the parameters gotten by the terminal
-* @tokens: contains all the parameters gotten by the terminal
-* @count: contains all the parameters gotten by the terminal
-* @executable: contains all the parameters gotten by the terminal
-* Return: the token
+* checkFile - ?
+*
+* @path_file: ?
+* @count: ¡
+* @executable: ?
+*
+* Return: ?
 */
-
-int check_file(char *path_file, int count, char *executable, char *tokens)
+int checkFile(char *path_file, int count, char *executable)
 {
-	if (access(path_file, F_OK) == 0 && access(path_file, X_OK) == -1)
+	(void)executable;
+
+	if (access(path_file, R_OK) == 0)
 	{
-		d_printf(STDERR_FILENO, DENIED, executable, count, tokens);
-		return (true);
+		if (access(path_file, X_OK) == 0)
+		{
+			return (true);
+		}
+		else
+		{
+			if (access(path_file, R_OK) == -1)
+				d_printf(STDERR_FILENO, "%s: %d: Permission denied\n", path_file, count);
+			return (false);
+		}
 	}
-	else if (access(path_file, F_OK) == 0 && access(path_file, R_OK) == -1)
+	else
 	{
-		d_printf(STDERR_FILENO, NOREAD, tokens, count, executable);
-		return (true);
+		d_printf(STDERR_FILENO, "%d: Can't open %s\n", count, path_file);
+		return (false);
 	}
-	else if (_strlen(tokens) >= 256)
-	{
-		d_printf(STDERR_FILENO, TOOLONG, count - 1, path_file);
-		return (true);
-	}
-	else if (access(path_file, F_OK) == -1)
-	{
-		d_printf(STDERR_FILENO, NOTFOUND, executable, count, path_file);
-		return (true);
-	}
-	return (false);
 }
+

@@ -36,7 +36,7 @@ int main(int ac __attribute__((unused)), char **av)
 				FREEDATA(path_file, _paths, tokens);
 				continue;
 			}
-			if (check_file(path_file, count, tokens[0], av[0]))
+			if (checkFile(path_file, count, tokens[0], av[0]))
 			{
 				FREEDATA(path_file, _paths, tokens);
 				continue;
