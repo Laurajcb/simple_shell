@@ -32,5 +32,4 @@ int check_file(char *path_file, int count, char *executable, char *tokens)
 		return (true);
 	}
 	return (false);
-	
 }

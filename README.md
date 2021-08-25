@@ -1,9 +1,9 @@
 <p aling="center">
-    <img  src="https://i0.wp.com/colaboratorio.net/wp-content/uploads/2017/01/bash.jpg?fit=2000%2C1200&ssl=1" 
+    <img  src="https://i0.wp.com/colaboratorio.net/wp-content/uploads/2017/01/bash.jpg?fit=2000%2C1200&ssl=1"
     width="400" height="200">
 </p>
 
-# **_Simple Shell Project_** 
+# **_Simple Shell Project_**
 
 In this repository you will find our version of a simple UNIX commandinterpreter: Shell.
 
@@ -69,9 +69,6 @@ $
 ![simple shell](flowchar..)
 
 ## Authors
-- [_Angelica Rodiguez_](https://github.com/angelicarm3) - angie00069@gmail.com 
+- [_Angelica Rodiguez_](https://github.com/angelicarm3) - angie00069@gmail.com
 - [_Carlos Matallana_](https://github.com/CarlosMatallana-prog) -3496@holbertonschool.com
 - [_Laura Callejas_](https://github.com/Laurajcb) - callejaslaura96@gmail.com
-
- 
- 
