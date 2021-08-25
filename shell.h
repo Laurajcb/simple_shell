@@ -45,11 +45,11 @@ ssize_t get_promptline(data_input_t *data);
 void prompt(void);
 int not_buildin(char **tokens);
 char **tokenize_getline(data_input_t *data);
-char *get_env_var(char *var_name);
+char *get_env_var(char *var_name, int count, char *tokens, char *executable);
 void get_dir(char **tokens);
 void run_script(char *path_file, char **tokens, char *av);
 char *find_pathfile(char **tokens, char *_paths);
-int check_file(char *path_file, int count, char *token, char *executable);
+int check_file(char *path_file);
 
 /**
  * struct mybuild- has the builtin funct

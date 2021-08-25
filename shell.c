@@ -32,10 +32,10 @@ int main(int ac, char **av)
 		remove_spaces(tokens[0]);
 		if (not_buildin(tokens))
 		{
-			_paths = get_env_var("PATH");
+			_paths = get_env_var("PATH", count, tokens[0], av[0]);
 			path_file = find_pathfile(tokens, _paths);
 			if (path_file == NULL) continue;
-			if (check_file(path_file, count, tokens[0], av[0]) == false) continue;
+			if (check_file(path_file) == false) continue;
 			run_script(path_file, tokens, av[0]);
 
 		}
