@@ -12,7 +12,6 @@ int not_buildin(char **tokens)
 
 	mybuild_t builints[] = {
 		{"exit", _exitt},
-		{"env", _env},
 		{NULL, NULL},
 	};
 
