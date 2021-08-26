@@ -16,7 +16,7 @@ void run_script(char *path_file, char **tokens, char *av)
 	child_pid = fork();
 	if (child_pid == 0)
 	{
-		if (execve(path_file, tokens, NULL) == -1)
+		if (execve(path_file, tokens, environ) == -1)
 		{
 			d_printf(STDERR_FILENO, "%s: %s: Permission denied", av, tokens[0]);
 		}
