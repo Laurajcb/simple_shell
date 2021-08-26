@@ -64,7 +64,6 @@ $
 
 ## Flowchart
 
-![simple shell](flowchar..![Image text]())
 <a href=#><img src="https://github.com/Laurajcb/simple_shell/raw/master/img/Screenshot%202021-08-25%20at%209.40.10%20PM.png" /></a>
 
 ### Requirements
