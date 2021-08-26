@@ -33,7 +33,7 @@ int main(int ac __attribute__((unused)), char **av)
 			if (path_fl == NULL)
 			{
 				d_printf(STDERR_FILENO, NOTFOUND, av[0], count, tokens[0]);
-				FREEDATA(path_fl, paths, tokens);
+				FREEDATA(NULL, paths, tokens);
 				continue;
 			}
 			if (check_file(path_fl, count, tokens[0], av[0]))

@@ -112,7 +112,7 @@ typedef struct myfree
 	do {                               \
 		free(PATHF);                   \
 		free(PATHS);                   \
-		free(TOKENS);				    \
+		free(TOKENS);                  \
 	} while (0)
 
 #endif

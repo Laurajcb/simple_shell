@@ -81,7 +81,7 @@ void _exitt(char **tokens, int count, char *av, char *_paths,
 
 	if (tokens[1] == NULL)
 	{
-		FREEDATA(path_file, _paths, tokens);
+		FREEDATA(input_arr, _paths, tokens);
 		exit(status);
 	}
 	else

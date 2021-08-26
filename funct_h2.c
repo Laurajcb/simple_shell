@@ -8,8 +8,7 @@ void remove_spaces(char *str)
 {
 	size_t str_len = _strlen(str);
 	char result[512];
-	size_t j = 0;
-	size_t i = 0;
+	size_t j = 0, i = 0;
 
 	for (i = 0; i < str_len; ++i)
 	{
@@ -49,7 +48,7 @@ int d_printf(int fd, const char *format, ...)
 		{
 			format++;
 			if (*format == 's')
-				for (str = va_arg(args, char *); *str;)
+				for (str = va_arg(args, char *); str != NULL && *str;)
 					*buff++ = *str++;
 			else if (*format == 'd' || *format == 'i')
 			{
@@ -65,7 +64,7 @@ int d_printf(int fd, const char *format, ...)
 	*buff = '\0';
 	va_end(args);
 	write(fd, str_to_print, buff - (char *)str_to_print);
-	return (buff - (char *)str_to_print);
+	return ((int)(buff - (char *)str_to_print));
 }
 
 /**
