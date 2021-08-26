@@ -1,14 +1,14 @@
 #ignore all files in each directory
-*/*
+*
 
 #unignore .c files in each directory
-!*/*.c
+!*.c
 
 #unignore .h header files in each directory
-!*/*.h
+!*.h
 
 #unignore .o files in each directory
-!*/*.o
+*.o
 
 #unignore .a files in each directory
 !*/*.a

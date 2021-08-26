@@ -1,14 +1,14 @@
 #include "shell.h"
 
 /**
-* check_file - ?
+* check_file - Function that check the possible error at execute a file
 *
-* @path_file: ?
-* @count: ?
-* @executable: ?
-* @tokens: ?
+* @path_file: the executable path
+* @count: the number of the line in the prompt
+* @executable: the name of executable of the shell
+* @tokens: user input commands
 *
-* Return: ?
+* Return: 1 if Success | 0 if fail
 */
 int check_file(char *path_file, int count, char *executable, char *tokens)
 {
